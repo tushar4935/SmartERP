@@ -1,0 +1,32 @@
+2025-10-16 01:46:09.294 IST [82403] LOG:  starting PostgreSQL 14.19 (Homebrew) on aarch64-apple-darwin25.0.0, compiled by Apple clang version 17.0.0 (clang-1700.3.19.1), 64-bit
+2025-10-16 01:46:09.301 IST [82403] LOG:  listening on IPv6 address "::1", port 5432
+2025-10-16 01:46:09.301 IST [82403] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-10-16 01:46:09.301 IST [82403] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2025-10-16 01:46:09.304 IST [82404] LOG:  database system was shut down at 2025-10-16 01:45:57 IST
+2025-10-16 01:46:09.308 IST [82403] LOG:  database system is ready to accept connections
+2025-10-16 01:46:22.925 IST [82486] FATAL:  role "postgres" does not exist
+2025-10-16 01:47:18.153 IST [82563] FATAL:  database "mdtusharmiah" does not exist
+2025-10-16 01:48:38.326 IST [82657] ERROR:  database "postgres" already exists
+2025-10-16 01:48:38.326 IST [82657] STATEMENT:  CREATE DATABASE postgres OWNER postgres;
+2025-10-16 01:49:10.131 IST [82657] ERROR:  role "postgres" already exists
+2025-10-16 01:49:10.131 IST [82657] STATEMENT:  CREATE ROLE postgres WITH LOGIN SUPERUSER PASSWORD 'postgres123';
+2025-10-16 01:49:28.822 IST [82657] ERROR:  database "postgres" already exists
+2025-10-16 01:49:28.822 IST [82657] STATEMENT:  CREATE DATABASE postgres OWNER postgres;
+2025-10-16 01:55:52.832 IST [82994] FATAL:  database "mdtusharmiah" does not exist
+2025-10-16 01:56:33.389 IST [83262] FATAL:  database "mdtusharmiah" does not exist
+2025-10-16 02:08:49.289 IST [83860] ERROR:  role "erp_user" already exists
+2025-10-16 02:08:49.289 IST [83860] STATEMENT:  CREATE ROLE erp_user WITH LOGIN PASSWORD 'your_password';
+2025-10-16 02:09:01.027 IST [83860] ERROR:  database "smarterp" already exists
+2025-10-16 02:09:01.027 IST [83860] STATEMENT:  CREATE DATABASE smarterp OWNER erp_user;
+2025-10-17 01:28:32.808 IST [87861] ERROR:  relation "users" does not exist at character 15
+2025-10-17 01:28:32.808 IST [87861] STATEMENT:  SELECT * FROM users
+2025-10-17 01:28:32.815 IST [87862] ERROR:  relation "users" does not exist at character 15
+2025-10-17 01:28:32.815 IST [87862] STATEMENT:  SELECT * FROM users
+2025-10-17 01:28:37.256 IST [87867] ERROR:  relation "users" does not exist at character 15
+2025-10-17 01:28:37.256 IST [87867] STATEMENT:  SELECT * FROM users
+2025-10-17 01:28:37.260 IST [87868] ERROR:  relation "users" does not exist at character 15
+2025-10-17 01:28:37.260 IST [87868] STATEMENT:  SELECT * FROM users
+2025-10-17 01:36:23.024 IST [88177] ERROR:  relation "users" does not exist at character 15
+2025-10-17 01:36:23.024 IST [88177] STATEMENT:  SELECT * FROM users
+2025-10-17 01:36:59.098 IST [88202] ERROR:  relation "users" does not exist at character 15
+2025-10-17 01:36:59.098 IST [88202] STATEMENT:  SELECT * FROM users
