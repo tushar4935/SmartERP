@@ -1,18 +1,16 @@
-import React from 'react';
+// src/components/DashboardCard.jsx
+import React from "react";
+import { Home, Users, FileText, Package, ShoppingCart } from "lucide-react";
 
-/**
- * A reusable card for the main dashboard display.
- * @param {string} title - e.g., "Total Revenue", "New Users"
- * @param {string|number} value - e.g., "$45,231", "150"
- * @param {React.ReactNode} [icon] - An optional icon to display.
- */
-const DashboardCard = ({ title, value, icon }) => {
+const DashboardCard = ({ title, value, icon, color }) => {
   return (
-    <div className="dashboard-card">
-      {icon && <div className="card-icon">{icon}</div>}
-      <div className="card-info">
-        <h3>{title}</h3>
-        <h2>{value}</h2>
+    <div className={`p-5 rounded-xl shadow-sm bg-white border-l-4 ${color}`}>
+      <div className="flex justify-between items-center">
+        <div>
+          <h4 className="text-sm text-gray-500">{title}</h4>
+          <p className="text-2xl font-semibold mt-1">{value}</p>
+        </div>
+        <div className="text-gray-400">{icon}</div>
       </div>
     </div>
   );

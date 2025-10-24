@@ -81,3 +81,10 @@
 	  '$2a$10$vC39kFiP13La8.AJVTNkGOG3P3ThD4kh9Ccx5jbwSipoMPPLgc3W6',
 	  'admin'
 	);
+2025-10-24 19:46:53.025 IST [87711] ERROR:  relation "users" does not exist at character 13
+2025-10-24 19:46:53.025 IST [87711] STATEMENT:  INSERT INTO users (name, email, password, role)
+	VALUES ('Admin', 'admin@gmail.com', '123456', 'admin');
+2025-10-24 19:50:09.317 IST [87743] ERROR:  duplicate key value violates unique constraint "users_email_key"
+2025-10-24 19:50:09.317 IST [87743] DETAIL:  Key (email)=(admin@gmail.com) already exists.
+2025-10-24 19:50:09.317 IST [87743] STATEMENT:  INSERT INTO users (name, email, password, role)
+	VALUES ('Admin', 'admin@gmail.com', '123456', 'admin');
