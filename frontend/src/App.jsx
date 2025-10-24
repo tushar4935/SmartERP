@@ -9,6 +9,7 @@ import EmployeeDashboard from "./pages/EmployeeDashboard";
 import HRPage from "./pages/HRPage";
 import FinancePage from "./pages/FinancePage";
 import InventoryPage from "./pages/InventoryPage";
+import SalesPage from "./pages/SalesPage";
 
 export default function App() {
   // ✅ Helper to detect user role for default redirects
@@ -41,7 +42,7 @@ export default function App() {
         <Route path="admin/hr" element={<HRPage />} />
         <Route path="admin/finance" element={<FinancePage />} />
         <Route path="admin/inventory" element={<InventoryPage />} />
-
+        <Route path="admin/sales" element={<SalesPage />} />
         {/* ✅ Employee Routes */}
         <Route path="employee-dashboard" element={<EmployeeDashboard />} />
 
