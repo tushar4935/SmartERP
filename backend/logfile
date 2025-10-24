@@ -30,3 +30,54 @@
 2025-10-17 01:36:23.024 IST [88177] STATEMENT:  SELECT * FROM users
 2025-10-17 01:36:59.098 IST [88202] ERROR:  relation "users" does not exist at character 15
 2025-10-17 01:36:59.098 IST [88202] STATEMENT:  SELECT * FROM users
+2025-10-17 23:49:19.888 IST [99520] FATAL:  database "mdtusharmiah" does not exist
+2025-10-18 07:15:48.852 IST [4478] ERROR:  duplicate key value violates unique constraint "users_email_key"
+2025-10-18 07:15:48.852 IST [4478] DETAIL:  Key (email)=(tushar@example.com) already exists.
+2025-10-18 07:15:48.852 IST [4478] STATEMENT:  INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *
+2025-10-18 07:16:45.552 IST [4577] ERROR:  duplicate key value violates unique constraint "users_email_key"
+2025-10-18 07:16:45.552 IST [4577] DETAIL:  Key (email)=(tushar@example.com) already exists.
+2025-10-18 07:16:45.552 IST [4577] STATEMENT:  INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *
+2025-10-18 07:16:54.141 IST [4581] ERROR:  duplicate key value violates unique constraint "users_email_key"
+2025-10-18 07:16:54.141 IST [4581] DETAIL:  Key (email)=(tushar@example.com) already exists.
+2025-10-18 07:16:54.141 IST [4581] STATEMENT:  INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4) RETURNING *
+2025-10-18 07:29:40.607 IST [4665] ERROR:  syntax error at or near "psql" at character 1
+2025-10-18 07:29:40.607 IST [4665] STATEMENT:  psql -U postgres
+	
+	psql -U your_postgres_username -d your_database_name
+	
+	SELECT * FROM users;
+2025-10-18 07:38:49.511 IST [5076] ERROR:  syntax error at or near "INTO" at character 28
+2025-10-18 07:38:49.511 IST [5076] STATEMENT:  SELECT * FROM users
+	INSERT INTO users (name, email, password, role)
+	VALUES ('Tushar', 'tushar@example.com', '12345', 'admin');
+2025-10-18 07:39:06.546 IST [5076] ERROR:  duplicate key value violates unique constraint "users_email_key"
+2025-10-18 07:39:06.546 IST [5076] DETAIL:  Key (email)=(tushar@example.com) already exists.
+2025-10-18 07:39:06.546 IST [5076] STATEMENT:  INSERT INTO users (name, email, password, role)
+	VALUES ('Tushar', 'tushar@example.com', '12345', 'admin');
+2025-10-18 07:40:44.124 IST [5076] ERROR:  duplicate key value violates unique constraint "users_email_key"
+2025-10-18 07:40:44.124 IST [5076] DETAIL:  Key (email)=(tushar@example.com) already exists.
+2025-10-18 07:40:44.124 IST [5076] STATEMENT:  INSERT INTO users (name, email, password, role)
+	VALUES ('Tushar', 'tushar@example.com', '12345', 'admin');
+2025-10-20 07:39:04.568 IST [20975] ERROR:  database "smarterp" already exists
+2025-10-20 07:39:04.568 IST [20975] STATEMENT:  CREATE DATABASE smarterp;
+2025-10-20 07:39:04.570 IST [20975] ERROR:  role "erp_user" already exists
+2025-10-20 07:39:04.570 IST [20975] STATEMENT:  CREATE USER erp_user WITH PASSWORD '12345';
+2025-10-20 07:39:18.659 IST [20975] ERROR:  role "erp_user" already exists
+2025-10-20 07:39:18.659 IST [20975] STATEMENT:  CREATE USER erp_user WITH PASSWORD '12345';
+2025-10-20 07:39:56.052 IST [20975] ERROR:  syntax error at or near "psql" at character 1
+2025-10-20 07:39:56.052 IST [20975] STATEMENT:  psql -U erp_user -d smarterp
+	
+	CREATE TABLE IF NOT EXISTS departments (
+	  id SERIAL PRIMARY KEY,
+	  name TEXT NOT NULL,
+	  description TEXT
+	);
+2025-10-23 23:44:04.211 IST [62130] ERROR:  duplicate key value violates unique constraint "users_email_key"
+2025-10-23 23:44:04.211 IST [62130] DETAIL:  Key (email)=(admin@gmail.com) already exists.
+2025-10-23 23:44:04.211 IST [62130] STATEMENT:  INSERT INTO users (name, email, password, role)
+	VALUES (
+	  'Admin',
+	  'admin@gmail.com',
+	  '$2a$10$vC39kFiP13La8.AJVTNkGOG3P3ThD4kh9Ccx5jbwSipoMPPLgc3W6',
+	  'admin'
+	);

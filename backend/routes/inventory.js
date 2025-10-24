@@ -1,36 +1,28 @@
-// routes/inventory.js
-import express from 'express';
-import pool from '../db.js';
-const router = express.Router();
+// backend/routes/inventory.js
+import { Router } from "express";
+import {
+  listInventory,
+  addItem,
+  updateItem,
+  deleteItem,
+} from "../controllers/inventoryController.js";
+import authMiddleware, { adminOnly } from "../middleware/authMiddleware.js";
+
+const router = Router();
+
+// Protect all inventory routes (admin only)
+router.use(authMiddleware, adminOnly);
 
 // Get all inventory items
-router.get('/', async (_req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM inventory');
-    res.json(result.rows);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+router.get("/", listInventory);
 
-// Add inventory item
-router.post('/', async (req, res) => {
-  const { name, quantity } = req.body;
-  if (!name || quantity === undefined) {
-    return res.status(400).json({ error: 'Name and quantity required' });
-  }
+// Add a new inventory item
+router.post("/", addItem);
 
-  try {
-    const result = await pool.query(
-      'INSERT INTO inventory (name, quantity) VALUES ($1, $2) RETURNING *',
-      [name, quantity]
-    );
-    res.json(result.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
+// Update an existing item
+router.put("/:id", updateItem);
+
+// Delete an item
+router.delete("/:id", deleteItem);
 
 export default router;

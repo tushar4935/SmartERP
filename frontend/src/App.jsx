@@ -1,53 +1,56 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+// frontend/src/App.jsx
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
+import LoginPage from "./pages/LoginPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
+import HRPage from "./pages/HRPage";
+import FinancePage from "./pages/FinancePage";
+import InventoryPage from "./pages/InventoryPage";
 
-function App() {
-  const [role, setRole] = useState(null); // null, "admin", or "employee"
+export default function App() {
+  // ✅ Helper to detect user role for default redirects
+  const getInitialRoute = () => {
+    const user = localStorage.getItem("user");
+    if (!user) return "/login";
 
-  // Simple "login" simulation
-  const handleLogin = (selectedRole) => {
-    setRole(selectedRole);
+    const parsedUser = JSON.parse(user);
+    return parsedUser.role === "admin"
+      ? "/admin-dashboard"
+      : "/employee-dashboard";
   };
 
   return (
-    <Router>
-      <div style={{ padding: "20px" }}>
-        <h1>Welcome to SmartERP</h1>
+    <Routes>
+      {/* Public route: Login */}
+      <Route path="/login" element={<LoginPage />} />
 
-        {/* If no role selected, show login buttons */}
-        {!role && (
-          <div style={{ marginBottom: "20px" }}>
-            <button onClick={() => handleLogin("admin")}>Login as Admin</button>{" "}
-            <button onClick={() => handleLogin("employee")}>Login as Employee</button>
-          </div>
-        )}
+      {/* Protected Routes */}
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Layout />
+          </ProtectedRoute>
+        }
+      >
+        {/* ✅ Admin Routes */}
+        <Route path="admin-dashboard" element={<AdminDashboard />} />
+        <Route path="admin/hr" element={<HRPage />} />
+        <Route path="admin/finance" element={<FinancePage />} />
+        <Route path="admin/inventory" element={<InventoryPage />} />
 
-        {/* Navigation only visible after login */}
-        {role && (
-          <nav style={{ marginBottom: "20px" }}>
-            <Link to="/admin">Admin Dashboard</Link> |{" "}
-            <Link to="/employee">Employee Dashboard</Link>{" "}
-            <button onClick={() => setRole(null)}>Logout</button>
-          </nav>
-        )}
+        {/* ✅ Employee Routes */}
+        <Route path="employee-dashboard" element={<EmployeeDashboard />} />
 
-        <Routes>
-          {/* Redirect user to their dashboard based on role */}
-          <Route
-            path="/admin"
-            element={role === "admin" ? <AdminDashboard /> : <Navigate to="/" />}
-          />
-          <Route
-            path="/employee"
-            element={role === "employee" ? <EmployeeDashboard /> : <Navigate to="/" />}
-          />
-          <Route path="/" element={!role ? <h2>Please select your role to login</h2> : <Navigate to={role === "admin" ? "/admin" : "/employee"} />} />
-        </Routes>
-      </div>
-    </Router>
+        {/* ✅ Default route after login */}
+        <Route index element={<Navigate to={getInitialRoute()} replace />} />
+      </Route>
+
+      {/* ✅ Fallback route for undefined URLs */}
+      <Route path="*" element={<Navigate to={getInitialRoute()} replace />} />
+    </Routes>
   );
 }
-
-export default App;
