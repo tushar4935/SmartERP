@@ -37,7 +37,7 @@ const Navbar = ({ onToggleSidebar, onOpenMobile }) => {
 
         {/* brand */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-linear-to-br from-indigo-600 to-sky-500 flex items-center justify-center shadow-md hidden sm:flex">
+          <div className="w-9 h-9 rounded-xl bg-linear-to-br from-indigo-600 to-sky-500 hidden sm:flex items-center justify-center shadow-md">
             <span className="text-white font-bold text-sm">SE</span>
           </div>
           <div className="flex flex-col">
