@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/* ── Global Animations ─────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.45s ease both; }
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slideInLeft { animation: slideInLeft 0.38s ease both; }
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slideInRight { animation: slideInRight 0.38s ease both; }
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-scaleIn { animation: scaleIn 0.32s ease both; }
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: 8px;
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.8); }
+  70%  { transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-popIn { animation: popIn 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+
+/* staggered children  */
+.stagger > *:nth-child(1) { animation-delay: 0ms;   }
+.stagger > *:nth-child(2) { animation-delay: 60ms;  }
+.stagger > *:nth-child(3) { animation-delay: 120ms; }
+.stagger > *:nth-child(4) { animation-delay: 180ms; }
+.stagger > *:nth-child(5) { animation-delay: 240ms; }
+.stagger > *:nth-child(6) { animation-delay: 300ms; }
+.stagger > *:nth-child(7) { animation-delay: 360ms; }
+.stagger > *:nth-child(8) { animation-delay: 420ms; }
+
+/* ── Gradient Text ────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Page Wrapper ─────────────────────────────────── */
+.erp-page {
+  animation: fadeIn 0.45s ease both;
+  padding: 1.5rem;
+}
+
+/* ── Card ─────────────────────────────────────────── */
+.erp-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.04);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.erp-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+/* ── Table ────────────────────────────────────────── */
+.erp-table { width: 100%; border-collapse: collapse; }
+.erp-table thead tr { background: #f8fafc; }
+.erp-table thead th { padding: 10px 16px; text-align: left; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; border-bottom: 2px solid #e2e8f0; }
+.erp-table tbody tr { border-bottom: 1px solid #f1f5f9; transition: background 0.15s; }
+.erp-table tbody tr:hover { background: #f8fafc; }
+.erp-table td { padding: 10px 16px; font-size: 0.875rem; color: #334155; }
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn-primary   { background: #4f46e5; color: white; border-radius: 8px; padding: 8px 18px; font-size: 0.875rem; font-weight: 600; transition: background 0.2s, transform 0.1s; cursor: pointer; }
+.btn-primary:hover   { background: #4338ca; transform: translateY(-1px); }
+.btn-success   { background: #059669; color: white; border-radius: 8px; padding: 8px 18px; font-size: 0.875rem; font-weight: 600; transition: background 0.2s; cursor: pointer; }
+.btn-success:hover   { background: #047857; }
+.btn-danger    { background: #dc2626; color: white; border-radius: 8px; padding: 8px 18px; font-size: 0.875rem; font-weight: 600; transition: background 0.2s; cursor: pointer; }
+.btn-danger:hover    { background: #b91c1c; }
+.btn-outline   { border: 2px solid #e2e8f0; background: white; border-radius: 8px; padding: 8px 18px; font-size: 0.875rem; font-weight: 500; transition: border-color 0.2s, background 0.2s; cursor: pointer; }
+.btn-outline:hover   { border-color: #6366f1; background: #eef2ff; }
+
+/* ── Badges ───────────────────────────────────────── */
+.badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; }
+.badge-green  { background: #dcfce7; color: #16a34a; }
+.badge-orange { background: #fff7ed; color: #ea580c; }
+.badge-red    { background: #fee2e2; color: #dc2626; }
+.badge-blue   { background: #dbeafe; color: #2563eb; }
+.badge-gray   { background: #f1f5f9; color: #64748b; }
+
+/* ── Form inputs ──────────────────────────────────── */
+.erp-input { width: 100%; border: 2px solid #e2e8f0; border-radius: 8px; padding: 9px 14px; font-size: 0.875rem; color: #1e293b; transition: border-color 0.2s, box-shadow 0.2s; outline: none; background: white; }
+.erp-input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+.erp-select { width: 100%; border: 2px solid #e2e8f0; border-radius: 8px; padding: 9px 14px; font-size: 0.875rem; color: #1e293b; transition: border-color 0.2s; outline: none; background: white; cursor: pointer; }
+.erp-select:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+
+/* ── Section Header ───────────────────────────────── */
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+.page-title  { font-size: 1.375rem; font-weight: 700; color: #1e293b; }
+.page-sub    { font-size: 0.8rem; color: #94a3b8; margin-top: 2px; }
